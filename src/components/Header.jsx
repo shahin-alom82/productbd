@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { BsCartCheckFill } from "react-icons/bs";
 import Container from "./Container";
+import Link from "next/link";
 
 const Header = () => {
       const [active, setActive] = useState("HOME");
@@ -15,22 +16,26 @@ const Header = () => {
 
                         {/* Navigation Links */}
                         <div className="flex items-center gap-10">
-                              <h1
-                                    onClick={() => setActive("HOME")}
-                                    className={`cursor-pointer ${active === "HOME" ? "text-blue-700" : "text-gray-700"
-                                          }`}
-                              >
-                                    HOME
-                              </h1>
-                              <h1
-                                    onClick={() => setActive("ALL PRODUCTS")}
-                                    className={`cursor-pointer ${active === "ALL PRODUCTS"
-                                          ? "text-blue-700"
-                                          : "text-gray-700"
-                                          }`}
-                              >
-                                    ALL PRODUCTS
-                              </h1>
+                              <Link href={"/"}>
+                                    <h1
+                                          onClick={() => setActive("HOME")}
+                                          className={`cursor-pointer ${active === "HOME" ? "text-blue-700" : "text-gray-700"
+                                                }`}
+                                    >
+                                          HOME
+                                    </h1>
+                                    </Link>
+                              <Link href={"/allproduct"}>
+                                    <h1
+                                          onClick={() => setActive("ALL PRODUCTS")}
+                                          className={`cursor-pointer ${active === "ALL PRODUCTS"
+                                                ? "text-blue-700"
+                                                : "text-gray-700"
+                                                }`}
+                                    >
+                                          ALL PRODUCTS
+                                    </h1>
+                              </Link>
                               <h1
                                     onClick={() => setActive("ABOUT")}
                                     className={`cursor-pointer ${active === "ABOUT" ? "text-blue-700 " : "text-gray-700"
