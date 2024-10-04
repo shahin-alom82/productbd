@@ -1,4 +1,3 @@
-"use client"
 import Container from "./Container";
 import { fetchData } from "./helper";
 import ProductCart from "./ProductCart";

@@ -1,4 +1,3 @@
-"use  client"
 import Container from "@/components/Container";
 import { fetchData } from "@/components/helper";
 import ProductCart from "@/components/ProductCart";

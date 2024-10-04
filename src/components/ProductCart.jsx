@@ -1,4 +1,3 @@
-"use client"
 const ProductCart = ({ product }) => {
       
       return (

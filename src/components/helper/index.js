@@ -1,10 +1,10 @@
 
 
-export const fetchData = async (endPoind) => {
-      const res = await fetch(endPoind, {
+export const fetchData = async (endpoind) => {
+      const res = await fetch(endpoind, {
             method: "GET",
             headers: {
-                  "Content-Type": "appcation/json"
+                  "Content-Type": "application/json"
             }
       })
       const data = await res.json()
