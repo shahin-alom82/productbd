@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Container from "./Container";
 import { FaCcMastercard, FaCcPaypal, FaCcStripe, FaCcVisa, FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { SiInstagram } from "react-icons/si";
@@ -16,16 +15,16 @@ const Footer = () => {
 
                               </Link>                              <h1 className="mt-6 text-gray-800">We are a team of designers and <br /> developers that create high quality <br /> WordPress</h1>
                               <div className="flex items-center gap-4 mt-6">
-                                    <div className="border-2 shadow-md border-bannercyan py-2 px-2 text-gray-800 hover:text-white hover:bg-bannercyan cursor-pointer duration-300">
+                                    <div className="border-2 shadow-md border-gray-300 py-2 px-2 text-gray-800  cursor-pointer duration-300">
                                           <FaFacebookF size={20} />
                                     </div>
-                                    <div className="border-2 shadow-md border-bannercyan py-2 px-2 text-gray-800 hover:text-white hover:bg-bannercyan cursor-pointer duration-300">
+                                    <div className="border-2 shadow-md border-gray-300 py-2 px-2 text-gray-800   cursor-pointer duration-300">
                                           <FaTwitter size={20} />
                                     </div>
-                                    <div className="border-2 shadow-md border-bannercyan py-2 px-2 text-gray-800 hover:text-white hover:bg-bannercyan cursor-pointer duration-300">
+                                    <div className="border-2 shadow-md border-gray-300 py-2 px-2 text-gray-800  cursor-pointer duration-300">
                                           <FaLinkedinIn size={20} />
                                     </div>
-                                    <div className="border-2 shadow-md border-bannercyan py-2 px-2 text-gray-800 hover:text-white hover:bg-bannercyan cursor-pointer duration-300">
+                                    <div className="border-2 shadow-md border-gray-300 py-2 px-2 text-gray-800  cursor-pointer duration-300">
                                           <SiInstagram size={20} />
                                     </div>
                               </div>

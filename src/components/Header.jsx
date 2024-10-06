@@ -4,54 +4,32 @@ import { FaUserAlt } from "react-icons/fa";
 import { BsCartCheckFill } from "react-icons/bs";
 import Container from "./Container";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
-      const [active, setActive] = useState("HOME");
-
+      const nav = [
+            { title: "HOME", path: "/" },
+            { title: "ALL PRODUCTS", path: "/allproduct" },
+            { title: "ABOUT", path: "/about" },
+            { title: "CONTACT", path: "/contact" }
+      ]
+      const pathName = usePathname()
       return (
             <div className="border-b border-gray-300 py-4 sticky z-50 top-0 bg-white opacity-85">
                   <Container className="flex justify-between items-center">
                         {/* Logo */}
-                        <h1 className="text-2xl font-semibold"><span className="text-blue-600">PRODUCT</span><span className="text-gray-700">BD</span></h1>
+                        <Link href={"/"}>
+                              <h1 className="text-2xl font-semibold"><span className="text-blue-600">PRODUCT</span><span className="text-gray-700">BD</span></h1>
+                        </Link>
 
                         {/* Navigation Links */}
-                        <div className="flex items-center gap-10">
-                              <Link href={"/"}>
-                                    <h1
-                                          onClick={() => setActive("HOME")}
-                                          className={`cursor-pointer ${active === "HOME" ? "text-blue-700" : "text-gray-700"
-                                                }`}
-                                    >
-                                          HOME
-                                    </h1>
+                        <div className="flex gap-6">
+                              {nav.map((item, index) => (
+                                    <Link className={`${pathName === item.path ? "text-blue-700 font-medium" : "text-gray-700 font-medium"}`} href={item?.path} key={index}>
+                                          <h1>{item?.title}</h1>
                                     </Link>
-                              <Link href={"/allproduct"}>
-                                    <h1
-                                          onClick={() => setActive("ALL PRODUCTS")}
-                                          className={`cursor-pointer ${active === "ALL PRODUCTS"
-                                                ? "text-blue-700"
-                                                : "text-gray-700"
-                                                }`}
-                                    >
-                                          ALL PRODUCTS
-                                    </h1>
-                              </Link>
-                              <h1
-                                    onClick={() => setActive("ABOUT")}
-                                    className={`cursor-pointer ${active === "ABOUT" ? "text-blue-700 " : "text-gray-700"
-                                          }`}
-                              >
-                                    ABOUT
-                              </h1>
-                              <h1
-                                    onClick={() => setActive("CONTACT")}
-                                    className={`cursor-pointer ${active === "CONTACT" ? "text-blue-700 " : "text-gray-700"
-                                          }`}
-                              >
-                                    CONTACT
-                              </h1>
+                              ))}
                         </div>
-
                         {/* User & Cart Icons */}
                         <div className="flex items-center gap-8 relative">
                               <FaUserAlt size={25} className="rounded-full text-gray-700" />
