@@ -6,17 +6,17 @@ import ProductCart from "@/components/ProductCart";
 
 const AllProductPage = () => {
   const [category, setCategory] = useState('all');
-  const [products, setProducts] = useState([]); 
+  const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  
+
 
   useEffect(() => {
     const getProducts = async () => {
       const endPoind = "https://shahinjsondata.vercel.app/product";
       const productData = await fetchData(endPoind);
-      setProducts(productData); 
-      setFilteredProducts(productData); 
+      setProducts(productData);
+      setFilteredProducts(productData);
     };
 
     getProducts();
@@ -32,21 +32,21 @@ const AllProductPage = () => {
   }, [category, products]);
 
   const sideNav = [
-    { title: "All", path: "all"},
-    { title: "LED TV", path: "tv"},
+    { title: "All", path: "all" },
+    { title: "LED TV", path: "tv" },
     { title: "Watch", path: "watch" },
-    { title: "Electric", path: "electric"},
-    { title: "Furniture", path: "furniture"},
-    { title: "Head Phone", path: "headphone"}
+    { title: "Electric", path: "electric" },
+    { title: "Furniture", path: "furniture" },
+    { title: "Head Phone", path: "headphone" }
   ];
 
   return (
     <Container className={"py-5"}>
       <h1 className="text-sm tracking-wide text-gray-700">Browse through the products specialist.</h1>
-      <div className="lg:flex flex-row gap-5">
-        
+      <div className="lg:flex flex-row gap-5 ">
+
         {/* Sidebar */}
-        <div className="w-full lg:w-1/6 mt-5 flex flex-row lg:flex-col gap-4 text-start sticky top-20 cursor-pointer overflow-auto">
+        <div className="w-full lg:w-1/6 mt-5 flex flex-row lg:flex-col gap-4 text-start cursor-pointer overflow-auto">
           {sideNav.map((item, index) => (
             <button
               key={index}
@@ -65,7 +65,7 @@ const AllProductPage = () => {
               <ProductCart key={item?._id} product={item} />
             ))
           ) : (
-            <p className='lg:text-2xl text-center text-gray-700 tracking-wide font-medium'>No products found.</p>
+            <p className='lg:text-2xl text-center text-gray-700 tracking-wide font-medium'>Product Not  found.</p>
           )}
         </div>
       </div>

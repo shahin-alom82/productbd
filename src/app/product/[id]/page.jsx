@@ -2,6 +2,7 @@
 import Container from "@/components/Container";
 import { useEffect, useState } from "react";
 import { fetchData } from "@/components/helper";
+import Priceformate from "@/components/priceformate";
 
 const ProductPage = ({ params }) => {
       const [product, setProduct] = useState([]);
@@ -19,13 +20,14 @@ const ProductPage = ({ params }) => {
 
       return (
             <div className="py-10 ">
-                  <Container className={""}>
-                        <div className="flex gap-10">
-                              <div>
+                  <Container className={"border-b-2 border-gray-200 border-t-2"}>
+                        <div className="flex gap-10 py-4">
+                              <div className="w-2/6">
                                     <img src={product?.image} className="lg:h-64 w-64 rounded" alt="productImage" />
                               </div>
-                              <div>
-                                    <h1 className="lg:text-2xl text-xl tracking-wide text-gray-700">{product?.title}</h1>
+                              <div className="w-4/6">
+                                    <h1 className="lg:text-2xl text-[14px] tracking-wide text-gray-700">{product?.title}</h1>
+                                    <Priceformate amount={product?.price} />
                               </div>
                         </div>
                   </Container>
