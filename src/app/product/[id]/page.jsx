@@ -2,7 +2,6 @@
 import Container from "@/components/Container";
 import { useEffect, useState } from "react";
 import { fetchData } from "@/components/helper";
-import Priceformate from "@/components/priceformate";
 
 const ProductPage = ({ params }) => {
       const [product, setProduct] = useState([]);
@@ -27,7 +26,6 @@ const ProductPage = ({ params }) => {
                               </div>
                               <div className="w-4/6">
                                     <h1 className="lg:text-2xl text-[14px] tracking-wide text-gray-700">{product?.title}</h1>
-                                    <Priceformate amount={product?.price} />
                               </div>
                         </div>
                   </Container>
