@@ -1,35 +1,38 @@
-"use client"
+"use client";
 import { useState, useEffect } from 'react';
 import Container from "@/components/Container";
 import { fetchData } from "@/components/helper";
 import ProductCart from "@/components/ProductCart";
 
 const AllProductPage = () => {
+
   const [category, setCategory] = useState('all');
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-
-
+  
+  const endPoint = "https://shahinjsondata.vercel.app/product";
   useEffect(() => {
     const getProducts = async () => {
-      const endPoind = "https://shahinjsondata.vercel.app/product";
-      const productData = await fetchData(endPoind);
+      const productData = await fetchData(endPoint);
       setProducts(productData);
       setFilteredProducts(productData);
     };
-
     getProducts();
   }, []);
+
 
   useEffect(() => {
     if (category === 'all') {
       setFilteredProducts(products);
     } else {
-      const filtered = products.filter((item) => item.category === category);
+      const filtered = products.filter((item) =>
+        item.category.toLowerCase() === category.toLowerCase()
+      );
       setFilteredProducts(filtered);
     }
   }, [category, products]);
+
 
   const sideNav = [
     { title: "All", path: "all" },
@@ -39,6 +42,7 @@ const AllProductPage = () => {
     { title: "Furniture", path: "furniture" },
     { title: "Head Phone", path: "headphone" }
   ];
+
 
   return (
     <Container className={"py-5"}>
@@ -65,7 +69,7 @@ const AllProductPage = () => {
               <ProductCart key={item?._id} product={item} />
             ))
           ) : (
-            <p className='lg:text-2xl text-center text-gray-700 tracking-wide font-medium'>Product Not  found.</p>
+            <p className='lg:text-2xl text-center text-gray-700 tracking-wide font-medium'>Product Not found.</p>
           )}
         </div>
       </div>

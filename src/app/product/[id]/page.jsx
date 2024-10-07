@@ -2,10 +2,14 @@
 import Container from "@/components/Container";
 import { useEffect, useState } from "react";
 import { fetchData } from "@/components/helper";
+import { FaStar } from "react-icons/fa6";
+import { BsCartCheckFill } from "react-icons/bs";
 
 const ProductPage = ({ params }) => {
       const [product, setProduct] = useState([]);
       const _id = params.id;
+
+
       useEffect(() => {
             const fetchProduct = async () => {
                   const endPoind = `https://shahinjsondata.vercel.app/product`;
@@ -13,19 +17,33 @@ const ProductPage = ({ params }) => {
                   const foundProduct = data.find((item) => item._id == _id);
                   setProduct(foundProduct);
             };
-
             fetchProduct();
       }, [_id]);
 
+
       return (
             <div className="py-10 ">
-                  <Container className={"border-b-2 border-gray-200 border-t-2"}>
-                        <div className="flex gap-10 py-4">
-                              <div className="w-2/6">
-                                    <img src={product?.image} className="lg:h-64 w-64 rounded" alt="productImage" />
+                  <Container className={"border-b border-gray-200 border-t"}>
+                        <div className="flex flex-col lg:flex-row gap-10 py-4">
+                              <div className="lg:w-2/6 ">
+                                    <img src={product?.image} className="lg:h-64 w-64 lg:ml-0 ml-6 rounded items-center justify-center text-center" alt="productImage" />
                               </div>
-                              <div className="w-4/6">
-                                    <h1 className="lg:text-2xl text-[14px] tracking-wide text-gray-700">{product?.title}</h1>
+                              <div className="lg:w-4/6 mt-3">
+                                    <h1 className="lg:text-2xl text-[20px] tracking-wide font-medium text-gray-700">{product?.title}</h1>
+                                    <h1 className="mt-2 text-gray-700">{product?.description}</h1>
+                                    <h1 className="mt-2 text-gray-700">category : {product?.category}</h1>
+                                    <div className="flex items-center mt-2">
+                                          {Array.from({ length: product.rating }, (_, index) => (
+                                                <span key={index} className="text-orange-400">
+                                                      <FaStar size={20} />
+                                                </span>
+                                          ))}
+                                    </div>
+                                    <h1 className="mt-2 text-xl text-green-700">${product?.price}</h1>
+                                    <div className="flex items-center gap-[1px] mt-2">
+                                          <h1 className="bg-green-600 text-white py-1 px-2 text-sm">Add To Cart</h1>
+                                          <span className="bg-green-600 text-white py-1.5 px-2"><BsCartCheckFill /></span>
+                                    </div>
                               </div>
                         </div>
                   </Container>
