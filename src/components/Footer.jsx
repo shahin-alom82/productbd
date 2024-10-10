@@ -4,6 +4,8 @@ import { SiInstagram } from "react-icons/si";
 import { GoDotFill } from "react-icons/go";
 import { MdOutlineAddLocationAlt, MdOutlineAttachEmail } from "react-icons/md";
 import Link from "next/link";
+import { payment } from "@/asset";
+import Image from "next/image";
 
 const Footer = () => {
       return (
@@ -15,16 +17,16 @@ const Footer = () => {
 
                               </Link>                              <h1 className="mt-6 text-gray-800">We are a team of designers and <br /> developers that create high quality <br /> WordPress</h1>
                               <div className="flex items-center gap-4 mt-6">
-                                    <div className="border-2 shadow-md border-gray-300 py-2 px-2 text-gray-800  cursor-pointer duration-300">
+                                    <div className="border-2 border-gray-300 py-2 px-2 text-gray-800  cursor-pointer duration-300">
                                           <FaFacebookF size={20} />
                                     </div>
-                                    <div className="border-2 shadow-md border-gray-300 py-2 px-2 text-gray-800   cursor-pointer duration-300">
+                                    <div className="border-2 border-gray-300 py-2 px-2 text-gray-800   cursor-pointer duration-300">
                                           <FaTwitter size={20} />
                                     </div>
-                                    <div className="border-2 shadow-md border-gray-300 py-2 px-2 text-gray-800  cursor-pointer duration-300">
+                                    <div className="border-2 border-gray-300 py-2 px-2 text-gray-800  cursor-pointer duration-300">
                                           <FaLinkedinIn size={20} />
                                     </div>
-                                    <div className="border-2 shadow-md border-gray-300 py-2 px-2 text-gray-800  cursor-pointer duration-300">
+                                    <div className="border-2 border-gray-300 py-2 px-2 text-gray-800  cursor-pointer duration-300">
                                           <SiInstagram size={20} />
                                     </div>
                               </div>
@@ -94,14 +96,15 @@ const Footer = () => {
                               </div>
                         </div>
                   </Container>
-                  <Container className="lg:flex md:flex-row  items-center justify-between py-6">
-                        <p className="text-gray-800">© 2024 All Rights Reserved | HTML Template by Themepure.</p>
-                        <div className="flex items-center gap-2 text-bannercyan text-[#83b8de]">
-
+                  <Container className="lg:flex md:flex-row  items-center justify-between py-3">
+                        <p className="text-gray-800 text-sm">© 2024 All Rights Reserved | HTML Template by Themepure.</p>
+                        <div>
+                              {/* 
                               <FaCcStripe size={40} />
                               <FaCcVisa size={40} />
                               <FaCcMastercard size={40} />
-                              <FaCcPaypal size={40} />
+                              <FaCcPaypal size={40} /> */}
+                              <Image className='h-10 w-72 rounded-full' src={payment} alt="paymentimg" />
 
                         </div>
                   </Container>
